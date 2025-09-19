@@ -12,3 +12,15 @@
     font-family: var(--font-quicksand);
   }
 }
+
+/* 
+Custom variant for group open state. 
+ This variant checks if the parent with class 'group' has the 'open' state.
+ @slot takes in the style from the selected class.
+ i.e. group-open:rotate-45 > rotate-45 is passed to @slot
+*/
+@custom-variant group-open {
+  &:is(:where(.group):is(.open, [open], :popover-open, :open) *) {
+    @slot;
+  }
+}

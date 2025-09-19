@@ -6,7 +6,31 @@
     <title>Document</title>
     <link rel="stylesheet" href="/dist/output.css" />
     <script defer src="./assets/fontawesome/js/fontawesome.min.js"></script>
-    <script defer src="./assets/fontawesome/js/soild.min.js"></script>
+    <script defer src="./assets/fontawesome/js/solid.min.js"></script>
+    <script>
+      // Add Trigger events for click, keydown (Enter/Space), focus
+      window.onload = () => {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+
+        const toggleMenu = event => {
+          // Adds or removes the 'open' class to the button
+          //  open class is used by the custom variant to animate the burger menu
+          if (mobileMenuButton.classList.contains('open')) {
+            mobileMenuButton.classList.remove('open');
+          } else {
+            mobileMenuButton.classList.add('open');
+          }
+        };
+
+        mobileMenuButton.addEventListener('click', toggleMenu);
+        mobileMenuButton.addEventListener('keydown', event => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            toggleMenu();
+          }
+        });
+      };
+    </script>
   </head>
   <body>
     <main>
@@ -19,11 +43,17 @@
 
           <!-- Mobile Nav -->
           <div class="block md:hidden ml-auto my-auto pr-4 cursor-pointer">
-            <div>
-              <div class="bg-zinc-200 rounded-full w-8 h-1"></div>
-              <div class="bg-zinc-200 rounded-full w-8 h-1 my-1"></div>
-              <div class="bg-zinc-200 rounded-full w-8 h-1"></div>
-            </div>
+            <button type="button" title="Toggle mobile menu" id="mobile-menu-button" class="group">
+              <div
+                class="bg-zinc-200 rounded-full w-8 h-1 group-open:rotate-45 top-0 group-open:top-2 transition-all relative"
+              ></div>
+              <div
+                class="bg-zinc-200 rounded-full w-8 h-1 my-1 opacity-100 group-open:opacity-0 transition-all"
+              ></div>
+              <div
+                class="bg-zinc-200 rounded-full w-8 h-1 group-open:-rotate-45 top-0 group-open:-top-2 transition-all relative"
+              ></div>
+            </button>
           </div>
 
           <!-- Desktop Nav -->
