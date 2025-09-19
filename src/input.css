@@ -24,3 +24,9 @@ Custom variant for group open state.
     @slot;
   }
 }
+
+@custom-variant peer-open {
+  &:is(:where(.peer):is(.open, [open], :popover-open, :open) ~ *) {
+    @slot;
+  }
+}

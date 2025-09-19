@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>TW:MF</title>
     <link rel="stylesheet" href="/dist/output.css" />
     <script defer src="./assets/fontawesome/js/fontawesome.min.js"></script>
     <script defer src="./assets/fontawesome/js/solid.min.js"></script>
@@ -43,7 +43,12 @@
 
           <!-- Mobile Nav -->
           <div class="block md:hidden ml-auto my-auto pr-4 cursor-pointer">
-            <button type="button" title="Toggle mobile menu" id="mobile-menu-button" class="group">
+            <button
+              type="button"
+              title="Toggle mobile menu"
+              id="mobile-menu-button"
+              class="group peer"
+            >
               <div
                 class="bg-zinc-200 rounded-full w-8 h-1 group-open:rotate-45 top-0 group-open:top-2 transition-all relative"
               ></div>
@@ -54,6 +59,12 @@
                 class="bg-zinc-200 rounded-full w-8 h-1 group-open:-rotate-45 top-0 group-open:-top-2 transition-all relative"
               ></div>
             </button>
+            <!-- Mobile Menu -->
+            <div
+              class="peer-open:block hidden absolute bg-gradient-to-r from-rose-500 to-pink-500 w-full left-0 top-[62px]"
+            >
+              Mobile Menu
+            </div>
           </div>
 
           <!-- Desktop Nav -->
