@@ -9,8 +9,8 @@
     <script defer src="./assets/fontawesome/js/solid.min.js"></script>
     <script>
       // Add Trigger events for click, keydown (Enter/Space), focus
-      window.onload = () => {
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const setMenus = menuId => {
+        const mobileMenuButton = document.getElementById(menuId);
 
         const toggleMenu = event => {
           // Adds or removes the 'open' class to the button
@@ -29,6 +29,11 @@
             toggleMenu();
           }
         });
+      };
+
+      window.onload = () => {
+        setMenus('mobile-menu-button');
+        setMenus('tickets-menu');
       };
     </script>
   </head>
@@ -59,6 +64,7 @@
                 class="bg-zinc-200 rounded-full w-8 h-1 group-open:-rotate-45 top-0 group-open:-top-2 transition-all relative"
               ></div>
             </button>
+
             <!-- Mobile Menu -->
             <div
               class="peer-open:block hidden absolute bg-gradient-to-r from-rose-500 to-pink-500 w-full left-0 top-[62px]"
@@ -74,9 +80,22 @@
                 <span>Lineup</span>
               </div>
               <div
-                class="position flex items-center justify-center p-4 font-bold h-full cursor-pointer text-pink-200 hover:text-zinc-200 transition-colors hover:bg-white/10"
+                id="tickets-menu"
+                class="group position h-full cursor-pointer text-pink-200 hover:text-zinc-200 transition-colors hover:bg-white/10"
               >
-                <span>Tickets</span>
+                <div class="p-4 text-center font-bold">Tickets</div>
+                <div class="group-open:block hidden">
+                  <div
+                    class="relative text-center p-4 text-pink-200 hover:text-zinc-200 transition-colors ease-in-out"
+                  >
+                    <span>Single day ticket</span>
+                  </div>
+                  <div
+                    class="relative text-center p-4 text-pink-200 hover:text-zinc-200 transition-colors ease-in-out"
+                  >
+                    <span>7day ticket</span>
+                  </div>
+                </div>
               </div>
               <div
                 class="position flex items-center justify-center p-4 font-bold h-full cursor-pointer text-pink-200 hover:text-zinc-200 transition-colors hover:bg-white/10"
