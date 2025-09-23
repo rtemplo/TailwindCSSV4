@@ -5,6 +5,17 @@
 
 @theme {
   --font-quicksand: 'Quicksand', serif;
+  --animate-wavey: wavey 1000ms linear infinite;
+
+  @keyframes wavey {
+    0%,
+    100% {
+      transform: scaleY(0.5);
+    }
+    50% {
+      transform: scaleY(1.5);
+    }
+  }
 }
 
 @layer base {
