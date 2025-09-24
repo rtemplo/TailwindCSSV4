@@ -369,26 +369,39 @@
           </div>
         </div>
 
-        <h2 class="mt-20">Tickets</h2>
-        <table class="mt-5 table w-full border border-zinc-500 border-collapse">
-          <thead class="text-lg font-bold">
-            <td class="border border-zinc-500 py-3 px-3">Tickets</td>
-            <td class="border border-zinc-500 py-3 px-3">Price</td>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="border border-zinc-500 py-3 px-3">Single Day Ticket</td>
-              <td class="border border-zinc-500 py-3 px-3">$40</td>
-            </tr>
-            <tr>
-              <td class="border border-zinc-500 py-3 px-3">7 Day Ticket</td>
-              <td class="border border-zinc-500 py-3 px-3">$150</td>
-            </tr>
-          </tbody>
-          <caption class="caption-bottom">
-            Once they're gone, they're gone!
-          </caption>
-        </table>
+        <div class="@container">
+          <h2 class="mt-20">Tickets</h2>
+          <table class="mt-5 table w-full border border-zinc-500 border-collapse">
+            <thead class="text-lg font-bold">
+              <td class="border border-zinc-500 py-3 px-3">Tickets</td>
+              <td class="border border-zinc-500 py-3 px-3">Price</td>
+              <td class="w-[150px] @max-xl:hidden"></td>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-zinc-500 py-3 px-3">Single Day Ticket</td>
+                <td class="border border-zinc-500 py-3 px-3">$40</td>
+                <td class="border border-zinc-500 py-3 px-3 @max-xl:hidden">
+                  <button class="bg-pink-600 p-2 text-white rounded-md cursor-pointer">
+                    Buy Now
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="border border-zinc-500 py-3 px-3">7 Day Ticket</td>
+                <td class="border border-zinc-500 py-3 px-3">$150</td>
+                <td class="border border-zinc-500 py-3 px-3 @max-xl:hidden">
+                  <button class="bg-pink-600 p-2 text-white rounded-md cursor-pointer">
+                    Buy Now
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+            <caption class="caption-bottom">
+              Once they're gone, they're gone!
+            </caption>
+          </table>
+        </div>
       </div>
     </main>
   </body>
