@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
-@import 'tailwindcss' source(none);
+@import 'tailwindcss' source(none); /* <-- ensures no default Tailwind styles are included */
 
-@source "./";
+@source "./"; /* <-- specifies the directory that is processed/parsed by Tailwind */
 
 @theme {
   --font-quicksand: 'Quicksand', serif;
@@ -58,8 +58,12 @@
   }
 }
 
-/* 
-Custom variant for group open state. 
+/* Note: 
+ A variant refers to a particular state or condition of an element that can be targeted with specific styles. 
+ Custom variants allow you to define your own conditions for applying styles, beyond the default ones provided by Tailwind CSS.
+*/
+
+/* Custom variant for group open state. 
  This variant checks if the parent with class 'group' has the 'open' state.
  @slot takes in the style from the selected class.
  i.e. group-open:rotate-45 > rotate-45 is passed to @slot
@@ -70,10 +74,20 @@ Custom variant for group open state.
   }
 }
 
+/* Same as group-open except for peer. Peer selection is facilitated by the tilde (~) combinator. */
 @custom-variant peer-open {
   &:is(:where(.peer):is(.open, [open], :popover-open, :open) ~ *) {
     @slot;
   }
 }
 
+/*
+As per the Tailwind CSS documentation, the dark mode can be implemented in two ways: class-based or media-based.
+https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually
+
+Dark mode is supported out of the box in Tailwind CSS. By default, it uses the 'media' strategy, 
+which applies dark mode styles based on the user's system preferences.
+The custom variant below is for class-based dark mode, which applies dark mode styles when a parent element 
+(usually the <html> or <body> tag) has the class 'dark'.
+*/
 @custom-variant dark (&:where(.dark, .dark *));
