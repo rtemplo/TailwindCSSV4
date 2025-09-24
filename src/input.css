@@ -6,16 +6,10 @@
 @theme {
   --font-quicksand: 'Quicksand', serif;
   --animate-wavey: wavey 1000ms linear infinite;
-  --animation-delay-100: 100ms;
-  --animation-delay-200: 200ms;
-  --animation-delay-300: 300ms;
-  --animation-delay-400: 400ms;
-  --animation-delay-500: 500ms;
-  --animation-delay-600: 600ms;
-  --animation-delay-700: 700ms;
-  --animation-delay-800: 800ms;
-  --animation-delay-900: 900ms;
-  --animation-delay-1000: 1000ms;
+  --animation-delay-sm: 100ms;
+  --animation-delay-md: 300ms;
+  --animation-delay-lg: 500ms;
+  --animation-delay-xl: 1000ms;
 
   @keyframes wavey {
     0%,
@@ -29,7 +23,14 @@
 }
 
 @utility animation-delay-* {
+  /* allows the use of CSS variables, i.e. --animation-delay-sm*/
   animation-delay: --value(--animation-delay- *);
+
+  /* New in V4 - allows the use of arbitrary values without the use of brackets, i.e. --animation-delay-200 */
+  animation-delay: calc(--value(number) * 1ms);
+  /* Note for this trick: the unit can be anything, it can be px, rem, pt etc. In this case we needed it to be ms */
+
+  /* for use of arbitrary values with brackets, i.e. --animation-delay-[650ms] */
   animation-delay: --value([ *]);
 }
 
