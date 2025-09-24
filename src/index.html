@@ -31,7 +31,24 @@
         });
       };
 
+      const darkModeToggle = () => {
+        const darkModeButton = document.getElementById('dark-mode-toggle');
+
+        const toggleDarkMode = event => {
+          // Adds or removes the 'dark' class to the body
+          if (document.body.classList.contains('dark')) {
+            document.body.classList.remove('dark');
+          } else {
+            document.body.classList.add('dark');
+          }
+        };
+
+        darkModeButton.addEventListener('click', toggleDarkMode);
+      };
+
       window.onload = () => {
+        darkModeToggle();
+
         setMenus('mobile-menu-button');
         setMenus('tickets-menu');
 
@@ -51,7 +68,7 @@
       };
     </script>
   </head>
-  <body>
+  <body class="dark">
     <main class="bg-zinc-200 dark:bg-zinc-900">
       <header class="text-zinc-200">
         <div

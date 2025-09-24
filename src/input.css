@@ -74,3 +74,5 @@ Custom variant for group open state.
     @slot;
   }
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
